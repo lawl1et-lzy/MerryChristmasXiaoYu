@@ -1,0 +1,61 @@
+{
+  "name": "xiao-yu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "package-win": "electron-packager ./ --platform=win32 --out ./dist  --overwrite  --ignore=node_modules --arch=x64",
+    "package-win2": "electron-packager . electron-quick-start --overwrite --win=x32 --out  ./HelloWorldApp --arch=x64 --app-version=1.0.0 --electron-version=2.0.0",
+    "package-win3": "ELECTRON_MIRROR=\"https://npm.taobao.org/mirrors/electron/\" electron-packager . --overwrite --asar=x64 base64-convertor --platform=win32 --out=builds"
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.61",
+    "@electron-forge/maker-deb": "^6.0.0-beta.61",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.61",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.61",
+    "@electron-forge/maker-zip": "^6.0.0-beta.61",
+    "electron": "^16.0.5",
+    "electron-winstaller": "^5.0.0"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "icon": "./src/images/logo"
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "author": "linzhiyong",
+            "exe": "xiaoyu.exe",
+            "name": "xiaoyu"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  }
+}
